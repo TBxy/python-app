@@ -297,10 +297,8 @@ description = "Litestar - A production-ready, highly performant, extensible ASGI
 category = "main"
 optional = false
 python-versions = "<4.0,>=3.8"
-files = [
-    {file = "litestar-2.2.1-py3-none-any.whl", hash = "sha256:f8b6100bb6a0f4204d9b9a187a0dc5ea1a88dac29f6d0d83136497979f8a7e74"},
-    {file = "litestar-2.2.1.tar.gz", hash = "sha256:cf93b913d620866c5de6b85ef4480a85816c83f9efacb49d2a06fb4f7d802d5a"},
-]
+files = []
+develop = false
 
 [package.dependencies]
 anyio = ">=3"
@@ -318,7 +316,7 @@ typing-extensions = "*"
 annotated-types = ["annotated-types"]
 attrs = ["attrs"]
 brotli = ["brotli"]
-cli = ["jsbeautifier", "uvicorn[standard]"]
+cli = ["jsbeautifier", "uvicorn[standard]", "uvloop (>=0.18.0)"]
 cryptography = ["cryptography"]
 full = ["litestar[annotated-types,attrs,brotli,cli,cryptography,jinja,jwt,mako,minijinja,opentelemetry,piccolo,picologging,prometheus,pydantic,redis,sqlalchemy,standard,structlog]"]
 jinja = ["jinja2 (>=3.1.2)"]
@@ -329,11 +327,17 @@ opentelemetry = ["opentelemetry-instrumentation-asgi"]
 piccolo = ["piccolo"]
 picologging = ["picologging"]
 prometheus = ["prometheus-client"]
-pydantic = ["pydantic-extra-types", "pydantic[email]"]
+pydantic = ["email-validator", "pydantic", "pydantic-extra-types"]
 redis = ["redis[hiredis] (>=4.4.4)"]
-sqlalchemy = ["advanced-alchemy (==0.2.2)"]
-standard = ["fast-query-parsers (>=1.0.2)", "jinja2", "jsbeautifier", "uvicorn[standard]"]
+sqlalchemy = ["advanced-alchemy (>=0.2.2,<0.4.0)"]
+standard = ["fast-query-parsers (>=1.0.2)", "jinja2", "jsbeautifier", "uvicorn[standard]", "uvloop (>=0.18.0)"]
 structlog = ["structlog"]
+
+[package.source]
+type = "git"
+url = "https://github.com/litestar-org/litestar.git"
+reference = "HEAD"
+resolved_reference = "286b1edac31d4e3c3ea601a46628aa8e97f2d265"
 
 [[package]]
 name = "markdown-it-py"
@@ -901,4 +905,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "191e3f8f18bc36f6d1d2350296472cf16e97a95bce151e527243300d008a0a53"
+content-hash = "6358d7f146934450715a9663743542388a36ae808f011c26ecfd3047e07d95a2"

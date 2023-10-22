@@ -6,7 +6,7 @@ version = "0.1.0"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-litestar = "^2.2.1"
+litestar = {git = "https://github.com/litestar-org/litestar.git"}
 uvicorn = "^0.23.2"
 flask = "^3.0.0"
 
