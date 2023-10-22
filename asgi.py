@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+"""Minimal Litestar application."""
+from asyncio import sleep
+from typing import Any
+
+from litestar import Litestar, get
+
+
+@get("/")
+async def async_hello_world() -> dict[str, Any]:
+    """Route Handler that outputs hello world."""
+    await sleep(0.1)
+    return {"hello": "world"}
+
+
+@get("/sync", sync_to_thread=False)
+def sync_hello_world() -> dict[str, Any]:
+    """Route Handler that outputs hello world."""
+    return {"hello": "world"}
+
+
+app = Litestar(route_handlers=[sync_hello_world, async_hello_world])
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(
+        app="asgi:app",
+        host="0.0.0.0",
+        port=8080,
+        reload=True,
+        workers=1,
+    )
+
+
