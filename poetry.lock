@@ -672,17 +672,6 @@ files = [
 plugins = ["importlib-metadata"]
 
 [[package]]
-name = "pyinfo"
-version = "1.0.1"
-description = "python environment info as phpinfo does with php"
-category = "main"
-optional = false
-python-versions = "*"
-files = [
-    {file = "pyinfo-1.0.1.tar.gz", hash = "sha256:944b89bacddda38924dd979f1827d8a65a3259db2e461e870a48463816e9f81f"},
-]
-
-[[package]]
 name = "python-dateutil"
 version = "2.8.2"
 description = "Extensions to the standard Python datetime module"
@@ -912,4 +901,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "b0d93827d00cf70b9fc043d4c5fdcd32ae57253a3332f039dcc0d1df15b04a7d"
+content-hash = "191e3f8f18bc36f6d1d2350296472cf16e97a95bce151e527243300d008a0a53"

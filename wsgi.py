@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """Minimal Litestar application."""
 from flask import Flask
+import os
 
 app = Flask(__name__)
 
@@ -11,4 +12,4 @@ def helloworld():
 
 
 if __name__ == "__main__":
-    app.run(port=8081)
+    app.run(port=os.getenv("PORT", 8081))

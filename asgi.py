@@ -5,6 +5,8 @@ from typing import Any
 
 from litestar import Litestar, get
 
+import os
+
 
 @get("/")
 async def async_hello_world() -> dict[str, Any]:
@@ -23,12 +25,5 @@ app = Litestar(route_handlers=[sync_hello_world, async_hello_world])
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(
-        app="asgi:app",
-        host="0.0.0.0",
-        port=8080,
-        reload=True,
-        workers=1,
-    )
 
-
+    uvicorn.run(app="asgi:app", host="0.0.0.0", port=os.getenv("PORT", 8080), reload=True, workers=1)
